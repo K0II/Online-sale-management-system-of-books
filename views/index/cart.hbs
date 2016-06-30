@@ -1,0 +1,33 @@
+<div id="index_cart">
+    {{#if data.unCommit}}
+    <form action="/index/order_post" method="POST">
+        <table class="table" width="100%">
+           <thead>
+              <tr>
+                 <th></th><!-- 图片 -->
+                 <th>书名</th>
+                 <th>数量</th>
+                 <th>价格</th>
+                 <th></th><!-- 删除 -->
+              </tr>
+           </thead>
+           <tbody>
+              {{#each data.order_books}}
+                  <tr>
+                     <td><img src="/images/前桥.jpg" alt="" /></td>
+                     <td>{{book_title}}</td>
+                     <td>
+                         <input type="text" name="book_amount" value="{{book_amount}}">
+                     </td>
+                     <td><strong>￥ {{book_total}}</strong></td>
+                     <td><a href="/index/cart/deletion/{{book_id}}">删除</a></td>
+                  </tr>
+              {{/each}}
+           </tbody>
+        </table>
+        <div class="total_sum">总价：￥435{{data.total_sum}}</div>
+        <input type="hidden" name="order_id" value="{{data.order_id}}">
+        <input type="submit" value="提交订单">
+    </form>
+    {{/if}}
+</div>

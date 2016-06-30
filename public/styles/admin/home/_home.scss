@@ -1,0 +1,132 @@
+#form_retrieve {
+    width: 100%;
+    margin-bottom: 80px;
+    letter-spacing: -8px;
+    *{
+        letter-spacing: 0;
+        color: #BEBEC0;
+    }
+    font-size: 14px;
+    input {
+        padding: 10px 10px;
+        background-color: #000;
+        color: #BEBEC0;
+        border: 1px solid #242424;
+    }
+    input[name="title"] {
+        width: 30%;
+        border-right: none;
+    }
+    input[name="author"] {
+        width: 30%;
+        border-right: none;
+    }
+    input[type="submit"] {
+        margin-right: 0;
+        width: 8%;
+    }
+    .select {
+      width: 30%;
+      margin-right: 2%;
+      display: inline-block;
+      vertical-align: top;
+      margin-bottom: 16px;
+      padding: 0;
+      position: relative;
+      .select_head {
+        margin-bottom: -2px;
+        width: 100%;
+        label {
+          margin-bottom: 0;
+          width: 100%;
+          padding:0;
+          letter-spacing: -8px;
+          * {
+              letter-spacing: 0;
+          }
+          input {
+            width: 91%;
+            border: 1px solid #242424;
+            border-right: none;
+            display: inline-block;
+          }
+          i {
+            width: 9%;
+            background: none;
+            color: #BEBEC0;
+            border: 1px solid #242424;
+            padding: 13.5px 0;
+            text-align: center;
+            display: inline-block;
+            cursor: pointer;
+            vertical-align: top;
+          }
+        }
+      }
+      .select_sub {
+        width: 91.4%;
+        display: none;
+        border: 1px solid #242424;
+        border-top: none;
+        padding-top: 0;
+        position: absolute;
+        top: 42px;
+        li {
+            color: #BEBEC0;
+          font-size: 14px;
+          padding: 10px 10px;
+          cursor: pointer;
+          background-color: #000;
+          &:first-child {
+            margin-top:2px;
+          }
+        }
+        hr {
+          border: none;
+          height: 1px;
+          background-color: #242424;
+          margin: 0;
+        }
+      }
+    }
+}
+.table {
+    *{
+        font-size: 14px;
+    }
+    .admin_title {
+        width: 20%;
+    }
+    .admin_entity {
+        width: 65%;
+        div {
+            display: inline-block;
+            width: 100%;
+            max-height: 20px;
+            overflow: hidden;
+        }
+        div.show{
+            max-height: 10000px;
+            height: auto;
+        }
+        // white-space: nowrap;
+        // text-overflow: ellipsis;
+        // overflow:hidden;
+        // word-wrap:break-word;
+    }
+    .admin_biblio {
+        width: 3%;
+    }
+    .admin_time {
+        width: 3%;
+    }
+    .update{
+        width: 3%;
+    }
+    .delete{
+        width: 3%;
+    }
+    .view_more{
+        width: 3%;
+    }
+}

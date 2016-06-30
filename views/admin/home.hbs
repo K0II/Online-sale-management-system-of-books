@@ -1,0 +1,83 @@
+<div class="admin_home">
+    <form id="form_retrieve" action="/admin" method="post">
+        <input type="text" name="title" value="" placeholder="TITLE">
+        <input type="text" name="author" value="" placeholder="AUTHOR">
+        <div class="select">
+          <div class="select_head">
+              <label>
+                <input class="select_show" type="text" name="description" value="" placeholder="description" readonly>
+                <i class="fa fa-angle-down select_button"></i>
+              </label>
+          </div>
+          <ul class="select_sub">
+              <li>Literature</li><hr>
+              <li>Fiction</li><hr>
+              <li>Law</li><hr>
+              <li>History</li><hr>
+              <li>Computers</li><hr>
+              <li>Religion</li><hr>
+              <li>Business</li><hr>
+              <li>Comics</li><hr>
+              <li>Teens</li>
+          </ul>
+        </div>
+        <input type="submit" value="SEARCH">
+    </form>
+    <table class="table" width="100%">
+       <thead>
+          <tr>
+             <th>title</th>
+             <th>author</th>
+             <th>stock</th>
+             <th>category</th>
+             <th>time</th>
+             <th class="update"></th>
+             <th class="delete"></th>
+          </tr>
+       </thead>
+       <tbody>
+           {{#each data.books}}
+          <tr>
+             <td>{{title}}</td>
+             <td>{{author}}</td>
+             <td>{{stock}}</td>
+             <td>{{category}}</td>
+             <td>{{time}}</td>
+             <td class="update"><a class="update_a" href="javascript:;">update</a></td>
+             <td class="delete"><a class="delete_a" href="/admin/deletion/{{id}}">delete</a></td>
+          </tr>
+          {{/each}}
+       </tbody>
+    </table>
+</div>
+
+{{#section 'jquery'}}
+<script>
+$(function(){
+    $('#form_retrieve').on('click', function(e) {
+        if( $(e.target).is(".select_button") ) {
+            var select_head = $(e.target).parents('.select_head');
+            var select_show = $(e.target).siblings('.select_show');
+            var select_sub = select_head.siblings('.select_sub');
+            var select_opts = select_sub.find('li');
+            if( select_sub.is(":hidden") ) {
+                select_sub.stop(true,false).slideDown(400);
+                $(e.target).removeClass('fa-angle-down').addClass('fa-angle-up');
+            } else {
+                select_sub.stop(true,false).slideUp(400);
+                $(e.target).removeClass('fa-angle-up').addClass('fa-angle-down');
+            }
+        }
+        if( $(e.target).is(".select_sub li") ) {
+            var select_sub = $(e.target).parent();
+            var select_head = select_sub.siblings('.select_head');
+            var select_show = select_head.find('.select_show');
+            var select_button = select_show.siblings('.select_button');
+            select_show.val($(e.target).html());
+            select_sub.stop(true,false).fadeOut(400);
+            select_button.removeClass('fa-angle-up').addClass('fa-angle-down');
+        }
+    });
+});
+</script>
+{{/section}}

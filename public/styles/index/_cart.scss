@@ -1,0 +1,42 @@
+#index_orders,
+#index_cart {
+    form,
+    .order_one{
+        h2 {
+            text-align: left;
+            font-size: 18px;
+            margin-bottom: 16px;
+        }
+        text-align: right;
+        table.table{
+            tbody tr td{
+                text-align: left;
+                input {
+                    width: 36px;
+                    color: #000;
+                    text-align: center;
+                    padding:0;
+                    border-radius: 4px;
+                }
+                img {
+                    width:100px;
+                }
+            }
+        }
+        .total_sum {
+            display: inline-block;
+            margin-right: 60px;
+            font-size: 24px;
+        }
+        input[type="submit"] {
+            background-color: inherit;
+            border: 2px solid #fff;
+            color: #fff;
+            padding: 2px 24px;
+            &:hover {
+                background-color: #fff;
+                color:#000;
+            }
+        }
+    }
+}

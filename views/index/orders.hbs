@@ -1,0 +1,31 @@
+<div id="index_orders">
+    {{#each data.orders}}
+    <div class="order_one">
+        <h2>订单号：{{order_id}}</h2>
+        <table class="table" width="100%">
+           <thead>
+              <tr>
+                 <th></th><!-- 图片 -->
+                 <th>书名</th>
+                 <th>数量</th>
+                 <th>价格</th>
+              </tr>
+           </thead>
+           <tbody>
+              {{#if unDeal}}   <!-- 管理员已处理 -->
+                  {{#each order_books}}
+                      <tr>
+                         <td><img src="/images/前桥.jpg" alt="" /></td>
+                         <td>{{book_title}}</td>
+                         <td>{{book_amount}}</td>
+                         <td><strong>￥ {{book_total}}</strong></td>
+                      </tr>
+                  {{/each}}
+              {{/if}}
+           </tbody>
+        </table>
+        <div class="total_sum">总价：￥435{{data.total_sum}}</div>
+        <input type="submit" value="确认收货">
+    </div>
+    {{/each}}
+</div>

@@ -1,0 +1,53 @@
+<div class="books">
+    <ul class="bib">
+        <li><a href="/" class="active">All</a></li>
+        <li><a href="/books/Literature">Literature</a></li>
+        <li><a href="/books/Fiction">Fiction</a></li>
+        <li><a href="/books/Law">Law</a></li>
+        <li><a href="/books/History">History</a></li>
+        <li><a href="/books/Computers">Computers</a></li>
+        <li><a href="/books/Religion">Religion</a></li>
+        <li><a href="/books/Business">Business</a></li>
+        <li><a href="/books/Comics">Comics</a></li>
+        <li><a href="/books/Wine">Teens</a></li>
+    </ul>
+
+    {{#each data.books}}
+        <section class="book">
+            <div class="left">
+                <img src="/images/前桥.jpg" alt="" />
+                <strong>￥ {{price}}</strong>
+                <a href="/index/cart/{{id}}">加入购物车</a>
+            </div>
+            <div class="center">
+                <h2 class="title">{{title}}</h2>
+                <p>作者：<span>{{author}}</span></p>
+                <p>出版社：<span>{{publish}}</span></p>
+                <p>分类：<span>{{category}}</span></p>
+                <p>库存：<span>{{stock}}</span></p>
+                <p>发布时间：<span>{{time}}</span></p>
+            </div>
+            <div class="right">
+                <div class="description">
+                    <p display="none">{{{description}}}</p>
+                    <div style="background-color: #000; min-height: 100px;color:#fff;"></div>
+                </div>
+            </div>
+        </section>
+    {{/each}}
+</div>
+
+
+
+{{#section 'jquery'}}
+    <script>
+        $(function(){
+            $('.description').each(function(index,domEle){
+                var div = $(domEle).find('div');
+                var p = $(domEle).find('p');
+                $(domEle).find('p').hide();
+                div.html(marked(p.html()));
+            });
+        });
+    </script>
+{{/section}}

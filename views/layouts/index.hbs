@@ -1,0 +1,85 @@
+<!-- 所有的视图都是这个布局 -->
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>My Blog</title>
+    <link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" >
+    <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css">
+    <script src="//cdn.bootcss.com/jquery/3.0.0-beta1/jquery.min.js"></script>
+    <script src="//cdn.bootcss.com/vue/1.0.24/vue.min.js"></script>
+    <script src="//cdn.bootcss.com/marked/0.3.5/marked.min.js"></script>
+    <link rel="stylesheet" href="/styles/main.css">
+    {{{_sections.head}}}
+  </head>
+  <body>
+      <div id="wapper">
+          <nav>
+              <ul>
+                  <li id="logo"><a href="/">图书销售系统</a></li>
+                  {{#if userId}}
+                      <li><a href="/index/cart"><i class="fa fa-shopping-cart"></i> 购物车</a></li>
+                      <li><a href="/index/orders">我的订单</a></li>
+                      <li><a href="/index/logout">退出</a></li>
+                  {{else}}
+                      <li><a href="/index/login" id="login-btn">登录</a></li>
+                      <li><a href="/index/enroll" id="enroll-btn">注册</a></li>
+                  {{/if}}
+              </ul>
+          </nav>
+
+          <main>
+              {{{body}}}
+          </main>
+
+          <footer>©</footer>
+      </div>
+
+
+    {{{_sections.jquery}}}
+    <script>
+        $(function(){
+            $('#login').hide();
+            $('#enroll').hide();
+            $('#login-btn').on('click', function(){
+                $('#login').show();
+            });
+            $('#enroll-btn').on('click', function(){
+                $('#enroll').show();
+            });
+            $('#login').on('submit',function(evt) {
+                evt.preventDefault();
+                $.ajax({
+                    url: '/index/login',
+                    type: 'POST',
+                    data: $(this).serialize(),
+                    success: function(res) {
+                        if (res.success) {
+                            location.href="/";
+                            console.log(res.message);
+                        }
+                    }
+                });
+            });
+            $('#enroll').on('submit',function(evt){
+                evt.preventDefault();
+                $.ajax({
+                    url: '/index/enroll',
+                    type: 'POST',
+                    data: $(this).serialize(),
+                    success: function(res) {
+                        if (res.error) {
+                            console.log(res.message);
+                        } else if (res.success) {
+                            console.log(res.message);
+                        }
+                    }
+                });
+            })
+        });
+    </script>
+
+
+    </body>
+</html>

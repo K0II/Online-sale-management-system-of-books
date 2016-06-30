@@ -1,0 +1,105 @@
+.books {
+    text-align: left;
+    padding-top: 20px;
+    .bib {
+        display: inline-block;
+        text-align: left;
+        border: 1px solid #fff;
+        margin-bottom: 80px;
+        letter-spacing: -6px;
+        li {
+            letter-spacing: 0;
+            display: inline-block;
+            border-right: 1px solid #fff;
+            padding: 0;
+            a {
+                padding: 2px 21px;
+                font-size: 14px;
+                width: 100%;
+                height: 100%;
+                display: inline-block;
+                transition: .5s;
+                &:hover{
+                    background-color: #fff;
+                    color: #333;
+                }
+            }
+            .active{
+                background-color: #fff;
+                color: #333;
+            }
+        }
+        li:last-child {
+            border-right: none;
+        }
+    }
+    .book {
+        display: flex;
+        flex-wrap: nowrap;
+        justify-content: flex-start;
+        align-items: flex-start;
+        border: 1px solid #333;
+        border-right: none;
+        border-left: none;
+        margin-bottom: 80px;
+        padding-top: 20px;
+        letter-spacing: -8px;
+
+        *{
+            letter-spacing: 0;
+        }
+        .left {
+            order: 1;
+            width: 20%;
+            margin-right: 2.5%;
+            img {
+                width: 100%;
+                height: 80%;
+            }
+            strong {
+                color: #00ffff;
+                display: block;
+                text-align: center;
+                font-weight: normal;
+                margin-top: 20px;
+                font-size: 24px;
+            }
+            a {
+                display: block;
+                border: 2px solid #FFFF00;
+                display: block;
+                margin: 10px auto;
+                margin-bottom: 20px;
+                width: 100%;
+                background-color: inherit;
+                padding: 4px 10px;
+                transition: .5s;
+                font-weight: bold;
+                letter-spacing: 2px;
+                text-align: center;
+                &:hover {
+                    background-color: #FFFF00;
+                    color: #000;
+                }
+            }
+        }
+        .center {
+            width: 34%;
+            order: 2;
+            margin: 0 5.5%;
+            padding: 0;
+            h2 {
+                letter-spacing: 2px;
+                margin-top: -4px;
+                margin-bottom: 30px;
+            }
+        }
+        .right {
+            width: 30%;
+            order:3;
+            margin-left: 2.5%;
+
+        }
+    }
+
+}

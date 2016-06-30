@@ -1,0 +1,59 @@
+<div class="add">
+    <form id="form_create" method="post" >
+        <div id="editor">
+            <textarea name="description" placeholder="description" onfocus="window.activeobj=this;this.clock=setInterval(function(){activeobj.style.height=activeobj.scrollHeight+'px';},200);" onblur="clearInterval(this.clock);" v-model="input" debounce="300"></textarea>
+        </div>
+        <div class="select">
+          <div class="select_head">
+              <label>
+                <input class="select_show" type="text" name="category" value="" placeholder="category" readonly>
+                <i class="fa fa-angle-down select_button"></i>
+              </label>
+          </div>
+          <ul class="select_sub">
+              <li>Literature</li><hr>
+              <li>Fiction</li><hr>
+              <li>Law</li><hr>
+              <li>History</li><hr>
+              <li>Computers</li><hr>
+              <li>Religion</li><hr>
+              <li>Business</li><hr>
+              <li>Comics</li><hr>
+              <li>Teens</li>
+          </ul>
+        </div>
+        <input type="text" name="title" value="" placeholder="title">
+        <input type="text" name="author" value="" placeholder="author">
+        <input type="text" name="publish" value="" placeholder="publish">
+        <input type="text" name="price" value="" placeholder="price">
+        <input type="text" name="stock" value="" placeholder="stock">
+        <input type="url" name="img" value="" placeholder="img">
+        <input type="submit" value="SUBMIT">
+    </form>
+</div>
+
+{{#section 'jquery'}}
+<script>
+    $('#form_create').on('click', function(e) {
+        if( $(e.target).is(".select_button") ) {
+            var select_sub = $(e.target).parents('.select_head').siblings('.select_sub');
+            if( select_sub.is(":hidden") ) {
+                select_sub.stop(true,false).slideDown(400);
+                $(e.target).removeClass('fa-angle-down').addClass('fa-angle-up');
+            } else {
+                select_sub.stop(true,false).slideUp(400);
+                $(e.target).removeClass('fa-angle-up').addClass('fa-angle-down');
+            }
+        }
+        if( $(e.target).is(".select_sub li") ) {
+            var select_sub = $(e.target).parent();
+            var select_head = select_sub.siblings('.select_head');
+            var select_show = select_head.find('.select_show');
+            var select_button = select_show.siblings('.select_button');
+            select_show.val($(e.target).html());
+            select_sub.stop(true,false).fadeOut(400);
+            select_button.removeClass('fa-angle-up').addClass('fa-angle-down');
+        }
+    });
+</script>
+{{/section}}

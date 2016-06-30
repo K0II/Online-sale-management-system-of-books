@@ -1,0 +1,60 @@
+.form {
+    width: 40%;
+    margin: 140px auto 0;
+    border: 4px solid $primary-color;
+    padding: 30px 80px 50px;
+    fieldset {
+        border:none;
+        margin-bottom:20px;
+        .row {
+          margin: 30px 0;
+          border-bottom: 1px solid #fff;
+          input {
+            border: none;
+            line-height: 2.5;
+            width: 100%;
+            font-size: 14px;
+            letter-spacing: 1px;
+            background: none;
+            color: #fff;
+            display: inline-block;
+          }
+        }
+        .forget{
+          display: block;
+          float: right;
+          margin: -14px 2px 16px;
+          font-size: 12px;
+          color: #fff;
+          opacity: .5;
+          &:hover {
+            opacity: 1;
+          }
+        }
+    }
+    .btn-log {
+      display: block;
+      width: 100%;
+      height: 48px;
+      border: 3px solid #fff;
+      border-radius: 2px;
+      color: #fff;
+      text-align: center;
+      background: none;
+      transition: .5s;
+      &:hover {
+        background: $primary-color;
+        border: 3px solid $primary-color;
+        color: #fff;
+        cursor: pointer;
+      }
+      span {
+        font-size: 24px;
+        font-weight: bold;
+        letter-spacing: 8px;
+      }
+    }
+}
+#enroll {
+    margin: 80px auto 0;
+}

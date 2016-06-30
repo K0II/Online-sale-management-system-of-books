@@ -1,0 +1,42 @@
+{
+  "name": "my_blog",
+  "version": "1.0.0",
+  "description": "This is my blog !",
+  "homepage": "",
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "author": {
+    "name": "K0I",
+    "email": "1428757462@qq.com"
+  },
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.15.1",
+    "cookie-parser": "^1.4.1",
+    "crypto": "^0.0.3",
+    "express": "^4.13.4",
+    "express-logger": "^0.0.3",
+    "express-session": "^1.13.0",
+    "express3-handlebars": "^0.5.2",
+    "formidable": "^1.0.17",
+    "gulp-express": "^0.3.5",
+    "marked": "^0.3.5",
+    "mongodb": "^2.1.18",
+    "mongoose": "^4.4.16",
+    "morgan": "^1.7.0"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^3.1.0",
+    "gulp-clean": "^0.3.2",
+    "gulp-clean-css": "^2.0.7",
+    "gulp-compile-handlebars": "^0.6.1",
+    "gulp-concat": "^2.6.0",
+    "gulp-imagemin": "^3.0.1",
+    "gulp-rename": "^1.2.2",
+    "gulp-sass": "^2.3.1",
+    "gulp-uglify": "^1.5.3"
+  }
+}

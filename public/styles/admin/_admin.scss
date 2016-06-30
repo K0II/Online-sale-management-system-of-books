@@ -1,0 +1,37 @@
+#page{
+    min-width: 1280px;
+    min-height: 700px;
+    text-align: left;
+    padding-top: 80px;
+    nav {
+        vertical-align: top;
+        width: 140px;
+        display: inline-block;
+        height: 100%;
+        margin-top:0;
+        padding-right: 30px;
+        ul {
+            li{
+                margin: 6px 0;
+                a{
+                    color: #fff;
+                    font-weight:bold;
+                    display: inline-block;
+                    width: 100%;
+                    padding: 2px 10px;
+                }
+                // :hover {
+                //     background-color: #222;
+                //     text-align: right;
+                // }
+            }
+        }
+    }
+    main{
+        padding: 10px 20px;
+        display: inline-block;
+        width: 1120px;
+        @import 'home/home.scss';
+        @import 'manage/create.scss';
+    }
+}
